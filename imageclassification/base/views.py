@@ -28,21 +28,21 @@ def index(request):
 def predictImage(request):
     print (request)
     print (request.POST.dict())
-    fileObj=request.FILES['filePath']
-    fs=FileSystemStorage()
-    filePathName=fs.save(fileObj.name,fileObj)
-    filePathName=fs.url(filePathName)
+    fileObj = request.FILES['filePath']
+    fs = FileSystemStorage()
+    filePathName = fs.save(fileObj.name,fileObj)
+    filePathName = fs.url(filePathName)
     testimage='.'+filePathName
-    img = image.load_img(testimage, target_size=(img_height, img_width))
+    img = image.load_img(testimage, target_size = (img_height, img_width))
     x = image.img_to_array(img)
-    x=x/255
-    x=x.reshape(1,img_height, img_width,3)
+    x = x/255
+    x = x.reshape(1,img_height, img_width,3)
     with model_graph.as_default():
         with tf_session.as_default():
-            predi=model.predict(x)
+            predi = model.predict(x)
 
     import numpy as np
-    predictedLabel=labelInfo[str(np.argmax(predi[0]))]
+    predictedLabel = labelInfo[str(np.argmax(predi[0]))]
     ImageClassification.save(ImageClassification.objects.create(imageLink=filePathName, result=predictedLabel))
 
     context={'filePathName':filePathName,'predictedLabel':predictedLabel[1]}

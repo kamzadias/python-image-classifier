@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%do%fnrf&xb^na*$-oo#dlar&g&ho9=@3zdt7tb0!o=bo!0pf8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['imageclassificationapp.herokuapp.com']
 
 
 # Application definition
