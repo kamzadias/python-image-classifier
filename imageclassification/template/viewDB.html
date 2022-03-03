@@ -1,0 +1,13 @@
+{% extends 'headerPage.html' %}
+
+{% block content%}
+
+{% for i in listOfImagesPath %}
+<div style="margin-top: 30px">
+    <img src={{i}} style="width: 100px;">
+    <span style="margin-left: 20px">
+        <span style="font-weight: bold">Path:</span> {{i}}
+    </span>
+</div>
+{% endfor%}
+{% endblock %}
