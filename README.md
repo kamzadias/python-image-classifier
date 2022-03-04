@@ -1,6 +1,7 @@
 # Image classification service using Django and Keras
 An image classifier application where the Django server receives an image as input and after it is loaded, the CNN-based image classifier classifies the image. 
 After that, the program saves the path to the image and the result of the image classifier in PostgreSQL DB.
+The project is deployed in Heroku by the link https://imageclassificationapp.herokuapp.com/
 
 Project made by:
 - Dias Kamza
